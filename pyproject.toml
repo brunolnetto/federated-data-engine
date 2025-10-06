@@ -78,18 +78,18 @@ Repository = "https://github.com/brunolnetto/unified-data-engine"
 "Bug Tracker" = "https://github.com/your-org/unified-data-engine/issues"
 
 [project.scripts]
-unified-platform = "unified_platform.cli:main"
+unified-platform = "federated_data_engine.cli:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["unified_platform"]
+packages = ["federated_data_engine"]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "/unified_platform",
+    "/federated_data_engine",
     "/docs",
     "/examples",
     "/tests",
@@ -172,7 +172,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["unified_platform"]
+source = ["federated_data_engine"]
 omit = [
     "*/tests/*",
     "*/test_*",
