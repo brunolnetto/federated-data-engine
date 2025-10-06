@@ -1,4 +1,4 @@
-# Unified Data Platform
+# Data Platform
 
 A revolutionary data platform that combines dimensional modeling expertise with intelligent multi-backend technology selection, delivering both data engineering best practices and unprecedented flexibility.
 
@@ -15,7 +15,7 @@ A revolutionary data platform that combines dimensional modeling expertise with 
 - **DuckDB** - Embedded analytics and data science
 - **BigQuery** - Cloud-scale serverless analytics
 - **Snowflake** - Enterprise cloud data warehouse
-- **Delta Lake** - Unified batch and streaming
+- **Delta Lake** - Batch and streaming
 - **Parquet Files** - High-performance columnar storage
 
 ### Processing Engines Supported
@@ -131,7 +131,7 @@ unified-platform/
 - **Delta Lake** - ACID streaming + change data feed for real-time processing
 - **And 4 more backends** - DuckDB, BigQuery, Snowflake, Parquet
 
-### 🏗️ Unified Developer Experience
+### 🏗️ Developer Experience
 - **Declarative Metadata** - Define entities once, deploy to any backend
 - **Automatic DDL/DML Generation** - Production-ready code for all backends
 - **Zero Reimplementation** - Dimensional patterns automatically adapted
@@ -144,10 +144,10 @@ unified-platform/
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd unified-data-platform
+cd unified_platform
 
 # Install dependencies
-pip install -r requirements.txt
+uv sync
 
 # Install the package
 pip install -e .
