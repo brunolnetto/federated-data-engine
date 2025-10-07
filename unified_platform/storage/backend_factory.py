@@ -7,20 +7,20 @@ Factory for creating and managing storage backend instances.
 
 from typing import Dict, Type, List
 from .abstract_backend import StorageBackend, StorageConfig, StorageType
-from .postgresql_backend import PostgreSQLBackend
-from .iceberg_backend import IcebergBackend
-from .clickhouse_backend import ClickHouseBackend
-from .duckdb_backend import DuckDBBackend
+from .postgresql import PostgreSQLStorageBackend
+from .iceberg import IcebergStorageBackend
+from .clickhouse import ClickHouseStorageBackend
+from .duckdb import DuckDBStorageBackend
 
 
 class StorageBackendFactory:
     """Factory for creating storage backend instances"""
     
     _backends: Dict[StorageType, Type[StorageBackend]] = {
-        StorageType.POSTGRESQL: PostgreSQLBackend,
-        StorageType.ICEBERG: IcebergBackend,
-        StorageType.CLICKHOUSE: ClickHouseBackend,
-        StorageType.DUCKDB: DuckDBBackend,
+        StorageType.POSTGRESQL: PostgreSQLStorageBackend,
+        StorageType.ICEBERG: IcebergStorageBackend,
+        StorageType.CLICKHOUSE: ClickHouseStorageBackend,
+        StorageType.DUCKDB: DuckDBStorageBackend,
     }
     
     @classmethod

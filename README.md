@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Unified Data Platform
+=======
+# Data Platform
+>>>>>>> master
 
 A revolutionary data platform that combines dimensional modeling expertise with intelligent multi-backend technology selection, delivering both data engineering best practices and unprecedented flexibility.
 
@@ -15,7 +19,11 @@ A revolutionary data platform that combines dimensional modeling expertise with 
 - **DuckDB** - Embedded analytics and data science
 - **BigQuery** - Cloud-scale serverless analytics
 - **Snowflake** - Enterprise cloud data warehouse
+<<<<<<< HEAD
 - **Delta Lake** - Unified batch and streaming
+=======
+- **Delta Lake** - Batch and streaming
+>>>>>>> master
 - **Parquet Files** - High-performance columnar storage
 
 ### Processing Engines Supported
@@ -52,6 +60,7 @@ unified-platform/
 ├── PROJECT_COMPLETION_SUMMARY.md      # Detailed project summary
 ├── ENHANCED_PLATFORM_INSTRUCTIONS.md  # Platform implementation guide
 ├── requirements.txt                   # Python dependencies
+<<<<<<< HEAD
 ├── setup.py                          # Package setup
 ├── .gitignore                        # Git ignore rules
 ├── claude_instructions.md             # Development guidance
@@ -109,6 +118,63 @@ unified-platform/
     ├── architecture.md             # Architecture documentation
     ├── ETL_INTEGRATIONS_EXPANSION.md
     └── PANDERA_IMPLEMENTATION_ASSESSMENT.md
+=======
+├── setup.py                           # Package setup
+├── .gitignore                         # Git ignore rules
+├── claude_instructions.md             # Development guidance
+│
+├── unified_platform/                  # Core Platform Code
+│   ├── __init__.py                    # Package exports
+│   ├── schema_generator_client.py     # SQL integration client
+│   │
+│   ├── storage/                       # Storage Abstraction Layer (8 Backends)
+│   │   ├── __init__.py                # Storage exports
+│   │   ├── abstract_backend.py        # Abstract storage interface
+│   │   ├── backend_factory.py         # Storage factory pattern
+│   │   ├── postgresql_backend.py      # PostgreSQL implementation
+│   │   ├── clickhouse_backend.py      # ClickHouse implementation
+│   │   ├── iceberg_backend.py         # Iceberg implementation
+│   │   ├── duckdb_backend.py          # DuckDB implementation
+│   │   ├── bigquery_backend.py        # BigQuery implementation
+│   │   ├── snowflake_backend.py       # Snowflake implementation
+│   │   ├── delta_lake_backend.py      # Delta Lake implementation
+│   │   └── parquet_backend.py         # Parquet implementation
+│   │
+│   ├── processing/                    # Processing Abstraction Layer (6 Engines)
+│   │   ├── __init__.py                # Processing exports
+│   │   ├── abstract_engine.py         # Abstract processing interface
+│   │   ├── factory.py                 # Processing factory pattern
+│   │   ├── trino_engine.py            # Trino implementation
+│   │   ├── spark_engine.py            # Spark implementation
+│   │   ├── polars_engine.py           # Polars implementation
+│   │   ├── duckdb_engine.py           # DuckDB implementation
+│   │   ├── postgresql_engine.py       # PostgreSQL implementation
+│   │   └── clickhouse_engine.py       # ClickHouse implementation
+│   │
+│   └── orchestrator/                  # Platform Orchestrator
+│       ├── __init__.py
+│       └── platform.py                # Main platform class
+│
+├── examples/                          # Usage Examples and Demonstrations
+│   ├── sql/                           # SQL Schema Generators (Original Foundation)
+│   │   ├── ddl_generator.sql          # DDL generation functions
+│   │   ├── dml_generator.sql          # DML generation functions
+│   │   └── helper_functions.sql       # Utility functions
+│   ├── quick_start.py                 # Quick start example
+│   ├── architecture_demo.py           # Architecture demonstration
+│   ├── implementation_guide.py        # Implementation guidance
+│   ├── use_cases.py                   # Usage scenarios
+│   ├── complete_platform_demo.py      # Complete platform demo
+│   ├── unified_platform_demo.py       # Platform with dimensional modeling
+│   └── sql_foundation_demo.py         # SQL foundation integration demo
+│
+├── tests/                             # Test Suite
+│   └── *.sql                          # SQL test files
+│
+└── docs/                              # Documentation
+    ├── architecture.md                # Architecture documentation
+    └── expansion_roadmap.md
+>>>>>>> master
 ```
 
 ## 🎯 Platform Capabilities
@@ -133,7 +199,11 @@ unified-platform/
 - **Delta Lake** - ACID streaming + change data feed for real-time processing
 - **And 4 more backends** - DuckDB, BigQuery, Snowflake, Parquet
 
+<<<<<<< HEAD
 ### 🏗️ Unified Developer Experience
+=======
+### 🏗️ Developer Experience
+>>>>>>> master
 - **Declarative Metadata** - Define entities once, deploy to any backend
 - **Automatic DDL/DML Generation** - Production-ready code for all backends
 - **Zero Reimplementation** - Dimensional patterns automatically adapted
@@ -146,10 +216,17 @@ unified-platform/
 ```bash
 # Clone the repository
 git clone <repository-url>
+<<<<<<< HEAD
 cd unified-data-platform
 
 # Install dependencies
 pip install -r requirements.txt
+=======
+cd unified_platform
+
+# Install dependencies
+uv sync
+>>>>>>> master
 
 # Install the package
 pip install -e .

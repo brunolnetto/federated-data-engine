@@ -9,7 +9,7 @@ from typing import Dict, List, Any
 from .abstract_backend import StorageBackend
 
 
-class DuckDBBackend(StorageBackend):
+class DuckDBStorageBackend(StorageBackend):
     """DuckDB storage backend implementation"""
     
     def generate_ddl(self, table_metadata: Dict[str, Any]) -> str:

@@ -16,12 +16,21 @@ from .factory import (
 )
 
 # Processing engine implementations
+<<<<<<< HEAD
 from .trino_engine import TrinoProcessingEngine
 from .spark_engine import SparkProcessingEngine
 from .polars_engine import PolarsProcessingEngine
 from .duckdb_engine import DuckDBProcessingEngine
 from .postgresql_engine import PostgreSQLProcessingEngine
 from .clickhouse_engine import ClickHouseProcessingEngine
+=======
+from .trino import TrinoProcessingEngine
+from .spark import SparkProcessingEngine
+from .polars import PolarsProcessingEngine
+from .duckdb import DuckDBProcessingEngine
+from .postgresql import PostgreSQLProcessingEngine
+from .clickhouse import ClickHouseProcessingEngine
+>>>>>>> master
 
 __all__ = [
     # Abstract base classes
