@@ -9,12 +9,12 @@ from typing import Dict, Any, Optional
 from .abstract_engine import ProcessingEngineBackend
 
 # Import all engine implementations
-from .trino_engine import TrinoProcessingEngine
-from .spark_engine import SparkProcessingEngine
-from .polars_engine import PolarsProcessingEngine
-from .duckdb_engine import DuckDBProcessingEngine
-from .postgresql_engine import PostgreSQLProcessingEngine
-from .clickhouse_engine import ClickHouseProcessingEngine
+from .trino import TrinoProcessingEngine
+from .spark import SparkProcessingEngine
+from .polars import PolarsProcessingEngine
+from .duckdb import DuckDBProcessingEngine
+from .postgresql import PostgreSQLProcessingEngine
+from .clickhouse import ClickHouseProcessingEngine
 
 
 class ProcessingEngineFactory:

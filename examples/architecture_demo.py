@@ -118,7 +118,7 @@ class UnifiedPlatformDemo:
             
             WorkloadPattern(
                 name="High-Performance Local Analytics",
-                optimal_storage=[StorageType.PARQUET_FILES, StorageType.DUCKDB],
+                optimal_storage=[StorageType.PARQUET, StorageType.DUCKDB],
                 optimal_processing=[ProcessingEngine.POLARS, ProcessingEngine.DUCKDB],
                 use_cases=[
                     "Data science workflows", "Feature engineering", 

@@ -9,7 +9,7 @@ from typing import Dict, List, Any
 from .abstract_backend import StorageBackend
 
 
-class IcebergBackend(StorageBackend):
+class IcebergStorageBackend(StorageBackend):
     """Apache Iceberg storage backend implementation"""
     
     def generate_ddl(self, table_metadata: Dict[str, Any]) -> str:
