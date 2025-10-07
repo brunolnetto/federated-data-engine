@@ -74,6 +74,7 @@ services:
       /usr/bin/mc anonymous set download minio/warehouse;
       tail -f /dev/null
       "
+
 networks:
   mynetwork:
     name: mynetwork

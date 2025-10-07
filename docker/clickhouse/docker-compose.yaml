@@ -1,6 +1,14 @@
 version: "3.7"
 services:
 
+  tabix:
+    image: spoonest/clickhouse-tabix-web-client
+    ports:
+      - "8081:80"
+    networks:
+      - mynetwork
+
+
   clickhouse:
     image: clickhouse/clickhouse-server:latest-alpine
 
@@ -18,12 +26,11 @@ services:
 
     environment:
       - CLICKHOUSE_DB=default
-      - CLICKHOUSE_USER={{clickhouse_username}}
-      - CLICKHOUSE_PASSWORD={{clickhouse_password}}
+      - CLICKHOUSE_USER=clickhouse
+      - CLICKHOUSE_PASSWORD=clickhouse
 
 volumes:
   clickhouse_data:
-    external: true
   clickhouse_log:
     name: clickhouse_log
   
