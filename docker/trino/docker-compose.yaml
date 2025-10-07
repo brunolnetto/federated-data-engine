@@ -1,7 +1,7 @@
 
 services:
   trino:
-      image: "trinodb/trino:427"
+      image: "trinodb/trino:477"
       container_name: trino
       hostname: trino
       env_file:
