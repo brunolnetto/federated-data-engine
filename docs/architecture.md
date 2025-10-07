@@ -26,10 +26,10 @@ The Unified Data Platform implements a revolutionary architecture that separates
 ### Storage Abstraction Layer
 ```
 StorageBackend (Abstract)
-├── PostgreSQLBackend    # OLTP, transactions
-├── IcebergBackend       # Data lake, schema evolution
-├── ClickHouseBackend    # Columnar analytics  
-├── DuckDBBackend        # Embedded analytics
+├── PostgreSQLStorageBackend    # OLTP, transactions
+├── IcebergStorageBackend       # Data lake, schema evolution
+├── ClickHouseStorageBackend    # Columnar analytics  
+├── DuckDBStorageBackend        # Embedded analytics
 ├── BigQueryBackend      # Cloud scale
 ├── SnowflakeBackend     # Enterprise cloud
 ├── DeltaLakeBackend     # Unified streaming/batch
