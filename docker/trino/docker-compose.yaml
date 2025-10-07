@@ -1,0 +1,39 @@
+
+services:
+  trino:
+      image: "trinodb/trino:427"
+      container_name: trino
+      hostname: trino
+      env_file:
+        - .env
+      deploy:
+        resources:
+          limits:
+            memory: 8G
+            cpus: '4'
+          reservations:
+            memory: 4G
+            cpus: '2'
+      depends_on:
+        - iceberg-rest
+        - minio
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8080/v1/info/state"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+        start_period: 60s
+      ports:
+        - "8081:8080"
+      volumes:
+        - ./config:/etc/trino
+        - trino_logs:/var/log/trino
+      networks:
+        - mynetwork
+
+volumes:
+  trino_logs:
+
+networks:
+  mynetwork:
+    name: mynetwork

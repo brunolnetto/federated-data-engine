@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - PG_MAX_CONNECTIONS=500
+      - POSTGRES_DB=mydatabase
+    
+    ports:
+      - 5432:5432
+    
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    
+    networks:
+      - mynetwork
+
+volumes:
+  postgres_data:
+    external: true
+
+networks:
+  mynetwork:

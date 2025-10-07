@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest-alpine
+
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+      - clickhouse_log:/var/log/clickhouse-server
+
+    networks:
+      - mynetwork
+    
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+      - "9009:9009"
+
+    environment:
+      - CLICKHOUSE_DB=default
+      - CLICKHOUSE_USER={{clickhouse_username}}
+      - CLICKHOUSE_PASSWORD={{clickhouse_password}}
+
+volumes:
+  clickhouse_data:
+    external: true
+  clickhouse_log:
+    name: clickhouse_log
+  
+networks:
+  mynetwork:
+    name: mynetwork
