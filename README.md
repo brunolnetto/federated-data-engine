@@ -51,7 +51,7 @@ unified-platform/
 ├── CHANGELOG.md                       # Project changelog
 ├── PROJECT_COMPLETION_SUMMARY.md      # Detailed project summary
 ├── ENHANCED_PLATFORM_INSTRUCTIONS.md  # Platform implementation guide
-├── requirements.txt                   # Python dependencies
+├── requirements.txt                   # python3 dependencies
 ├── setup.py                           # Package setup
 ├── .gitignore                         # Git ignore rules
 ├── claude_instructions.md             # Development guidance
@@ -64,25 +64,25 @@ unified-platform/
 │   │   ├── __init__.py                # Storage exports
 │   │   ├── abstract_backend.py        # Abstract storage interface
 │   │   ├── backend_factory.py         # Storage factory pattern
-│   │   ├── postgresql_backend.py      # PostgreSQL implementation
-│   │   ├── clickhouse_backend.py      # ClickHouse implementation
-│   │   ├── iceberg_backend.py         # Iceberg implementation
-│   │   ├── duckdb_backend.py          # DuckDB implementation
-│   │   ├── bigquery_backend.py        # BigQuery implementation
-│   │   ├── snowflake_backend.py       # Snowflake implementation
-│   │   ├── delta_lake_backend.py      # Delta Lake implementation
-│   │   └── parquet_backend.py         # Parquet implementation
+│   │   ├── postgresql.py      # PostgreSQL implementation
+│   │   ├── clickhouse.py      # ClickHouse implementation
+│   │   ├── iceberg.py         # Iceberg implementation
+│   │   ├── duckdb.py          # DuckDB implementation
+│   │   ├── bigquery.py        # BigQuery implementation
+│   │   ├── snowflake.py       # Snowflake implementation
+│   │   ├── delta_lake.py      # Delta Lake implementation
+│   │   └── parquet.py         # Parquet implementation
 │   │
-│   ├── processing/                    # Processing Abstraction Layer (6 Engines)
-│   │   ├── __init__.py                # Processing exports
-│   │   ├── abstract_engine.py         # Abstract processing interface
-│   │   ├── factory.py                 # Processing factory pattern
-│   │   ├── trino_engine.py            # Trino implementation
-│   │   ├── spark_engine.py            # Spark implementation
-│   │   ├── polars_engine.py           # Polars implementation
-│   │   ├── duckdb_engine.py           # DuckDB implementation
-│   │   ├── postgresql_engine.py       # PostgreSQL implementation
-│   │   └── clickhouse_engine.py       # ClickHouse implementation
+│   ├── processing/             # Processing Abstraction Layer (6 Engines)
+│   │   ├── __init__.py         # Processing exports
+│   │   ├── abstract_engine.py  # Abstract processing interface
+│   │   ├── factory.py          # Processing factory pattern
+│   │   ├── trino.py            # Trino implementation
+│   │   ├── spark.py            # Spark implementation
+│   │   ├── polars.py           # Polars implementation
+│   │   ├── duckdb.py           # DuckDB implementation
+│   │   ├── postgresql.py       # PostgreSQL implementation
+│   │   └── clickhouse.py       # ClickHouse implementation
 │   │
 │   └── orchestrator/                  # Platform Orchestrator
 │       ├── __init__.py
@@ -90,6 +90,8 @@ unified-platform/
 │
 ├── examples/                          # Usage Examples and Demonstrations
 │   ├── sql/                           # SQL Schema Generators (Original Foundation)
+│   │   ├── tests/                     # Test Suite
+│   │   │   └── *.sql                  # SQL test files
 │   │   ├── ddl_generator.sql          # DDL generation functions
 │   │   ├── dml_generator.sql          # DML generation functions
 │   │   └── helper_functions.sql       # Utility functions
@@ -101,17 +103,20 @@ unified-platform/
 │   ├── unified_platform_demo.py       # Platform with dimensional modeling
 │   └── sql_foundation_demo.py         # SQL foundation integration demo
 │
-├── tests/                             # Test Suite
-│   └── *.sql                          # SQL test files
-│
-└── docs/                              # Documentation
-    ├── architecture.md                # Architecture documentation
-    └── expansion_roadmap.md
+└── docs/                                       # Documentation
+    ├── adr                                     # Architecture design record
+    │   └── 002-unified-metadata-architecture   # Unified metadata decisions
+    ├── architecture.md                         # Architecture documentation
+    ├── backend_adapter_patterns.md             # Dimensional adapters
+    ├── payload_agnostic_guide.md               # Payload schema guide 
+    ├── dimension_modelling_standard.md         # Dimension modelling standards
+    └── expansion_roadmap.md                    # Expansion plans
 ```
 
 ## 🎯 Platform Capabilities
 
 ### ✨ Dimensional Modeling Intelligence
+
 - **SCD2 Pattern Generation** - Automatically creates Type 2 Slowly Changing Dimensions
 - **Fact Table Optimization** - Validates measure additivity and grain consistency
 - **Cross-Backend Patterns** - Same dimensional logic works across all storage backends
@@ -119,12 +124,14 @@ unified-platform/
 - **Relationship Validation** - Validates foreign key relationships between facts and dimensions
 
 ### 🧠 Intelligent Backend Selection
+
 - **Workload Analysis** - Analyzes entity characteristics to select optimal technology
 - **Performance Optimization** - Matches storage and processing engines to workload patterns
 - **Compliance Aware** - Selects ACID-compliant backends for sensitive data
 - **Scale Adaptive** - Chooses appropriate technology based on data volume and frequency
 
 ### 🔄 Cross-Backend Compatibility
+
 - **PostgreSQL** - ACID compliance + full SCD2 procedures for transactional data
 - **ClickHouse** - Columnar optimization + real-time aggregation for analytics
 - **Iceberg** - Schema evolution + time travel for data lakes
@@ -132,6 +139,7 @@ unified-platform/
 - **And 4 more backends** - DuckDB, BigQuery, Snowflake, Parquet
 
 ### 🏗️ Developer Experience
+
 - **Declarative Metadata** - Define entities once, deploy to any backend
 - **Automatic DDL/DML Generation** - Production-ready code for all backends
 - **Zero Reimplementation** - Dimensional patterns automatically adapted
@@ -208,27 +216,28 @@ result = platform.deploy_dimensional_model(customer_analytics_pipeline)
 
 ```bash
 # Platform with dimensional modeling
-python examples/unified_platform_demo.py
+python3 examples/unified_platform_demo.py
 
 # SQL foundation integration demo
-python examples/sql_foundation_demo.py
+python3 examples/sql_foundation_demo.py
 
 # Complete platform demonstration
-python examples/complete_platform_demo.py
+python3 examples/complete_platform_demo.py
 
 # Architecture demonstration
-python examples/architecture_demo.py
+python3 examples/architecture_demo.py
 
 # Implementation guide
-python examples/implementation_guide.py
+python3 examples/implementation_guide.py
 
 # Use case examples
-python examples/use_cases.py
+python3 examples/use_cases.py
 ```
 
 ## 📈 Business Impact
 
 ### Performance Improvements
+
 - **30-300% faster queries** through intelligent backend selection
 - **Sub-100ms OLTP** response times with PostgreSQL optimization
 - **Sub-second analytics** with ClickHouse columnar processing
@@ -236,6 +245,7 @@ python examples/use_cases.py
 - **Real-time aggregation** with materialized views and streaming
 
 ### Operational Benefits
+
 - **Zero vendor lock-in** with 8 storage backends + 6 processing engines
 - **Dimensional modeling excellence** automatically applied across all backends
 - **Workload-specific optimization** through intelligent technology selection
@@ -243,6 +253,7 @@ python examples/use_cases.py
 - **Compliance built-in** with ACID guarantees where required
 
 ### Strategic Value
+
 - **Data engineering expertise** embedded in platform intelligence
 - **Future-proof architecture** supporting emerging technologies
 - **Developer productivity** through declarative metadata-driven development
@@ -273,11 +284,9 @@ python examples/use_cases.py
 
 ## 📚 Documentation
 
-- [Platform Instructions](ENHANCED_PLATFORM_INSTRUCTIONS.md) - Complete implementation guide
 - [Architecture Documentation](docs/architecture.md) - Platform architecture overview
-- [Project Completion Summary](PROJECT_COMPLETION_SUMMARY.md) - Development journey
-- [ETL Integrations](docs/ETL_INTEGRATIONS_EXPANSION.md) - Integration capabilities
-- [Pandera Assessment](docs/PANDERA_IMPLEMENTATION_ASSESSMENT.md) - Data quality validation
+- [Expansion Instructions](docs/expansion_roadmap.md) - Complete implementation guide
+
 
 ## 🤝 Contributing
 
@@ -303,6 +312,7 @@ For support, questions, or feature requests:
 This data platform represents the perfect synthesis of dimensional modeling expertise and multi-backend technology flexibility. It delivers on the original vision of providing "a data-engineer like experience without having to always reimplement the data good practices" while adding intelligent technology optimization.
 
 ### Key Achievements
+
 - ✅ **8 Storage Backends** fully implemented with dimensional pattern support
 - ✅ **6 Processing Engines** optimized for different workload types
 - ✅ **SCD2 Pattern Generation** across all storage technologies
