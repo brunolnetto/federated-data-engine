@@ -15,16 +15,6 @@ from .factory import (
 )
 
 # Storage backend implementations
-<<<<<<< HEAD
-from .postgresql_backend import PostgreSQLStorageBackend
-from .iceberg_backend import IcebergStorageBackend
-from .clickhouse_backend import ClickHouseStorageBackend
-from .duckdb_backend import DuckDBStorageBackend
-from .bigquery_backend import BigQueryStorageBackend
-from .snowflake_backend import SnowflakeStorageBackend
-from .delta_lake_backend import DeltaLakeStorageBackend
-from .parquet_backend import ParquetStorageBackend
-=======
 from .postgresql import PostgreSQLStorageBackend
 from .iceberg import IcebergStorageBackend
 from .clickhouse import ClickHouseStorageBackend
@@ -33,7 +23,6 @@ from .bigquery import BigQueryStorageBackend
 from .snowflake import SnowflakeStorageBackend
 from .delta_lake import DeltaLakeStorageBackend
 from .parquet import ParquetStorageBackend
->>>>>>> master
 
 __all__ = [
     # Abstract base classes

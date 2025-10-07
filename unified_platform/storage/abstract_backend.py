@@ -19,18 +19,9 @@ class StorageType(Enum):
     DUCKDB = "duckdb"
     BIGQUERY = "bigquery"
     SNOWFLAKE = "snowflake"
-<<<<<<< HEAD
-    DELTA_LAKE = "delta_lake"
-    PARQUET = "parquet"
-    BIGQUERY = "bigquery"
-    SNOWFLAKE = "snowflake"
-    DELTA_LAKE = "delta_lake"
-    PARQUET_FILES = "parquet_files"
-=======
     PARQUET = "parquet"
     SNOWFLAKE = "snowflake"
     DELTA_LAKE = "delta_lake"
->>>>>>> master
 
 
 @dataclass
