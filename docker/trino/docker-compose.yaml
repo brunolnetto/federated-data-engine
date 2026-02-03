@@ -48,7 +48,7 @@ services:
       - CATALOG_S3_ENDPOINT=${MINIO_URL}
 
   postgres:
-    image: postgres:15
+    image: postgres:18
     container_name: postgres
     env_file: 
       - .env
